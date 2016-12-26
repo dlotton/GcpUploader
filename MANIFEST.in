@@ -1,2 +1,4 @@
+include *.md
 include *.txt
-
+include garmin_uploader/help.txt
+include VERSION

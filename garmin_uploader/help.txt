@@ -1,0 +1,89 @@
+    Status Output:
+        The script will log infos about operations on stderr.
+        Nothing is written on stdout.
+
+    Credentials:
+        Username and password credentials may be placed in a configuration file
+        located either in the current working directory, or in the user's home
+        directory.  WARNING, THIS IS NOT SECURE. USE THIS OPTION AT YOUR OWN
+        RISK.  Username and password are stored as clear text in a file
+        format that is consistent with Microsoft (r) INI files.
+
+        The configuration file must contain a [Credentials] section containing
+        'username' and 'password' entries.
+
+        The name of the config file for non-windows platforms is '.guploadrc'
+        for windows platforms the config file is named 'gupload.ini'.
+
+
+        Example \'.guploadrc\' (or \'gupload.ini\' for windows):
+            [Credentials]
+            username=<myusername>
+            password=<mypassword>
+
+        Replace <myusername> and <mypassword> above with your own login
+        credentials.
+
+    Priority of credentials:
+        Command line credentials take priority over config files, current
+        directory config file takes priority over a config file in the user's
+        home directory.
+
+    CSV List Files:
+        A CSV (comma separated values) file can be created to associate files
+        with filename and file type information.  Each record (line) in the csv
+        file consists of three fields (filename, name, type).  Fields are
+        separated by commas, and text containing spaces or special characters
+        is quoted with double quotes (\").  Empty fields may be left blank, but
+        the field separators must be present.  THE FIRST LINE IN THE CSV FILE
+        DEFINES THE ORDER OF THE FIELDS AND *MUST* CONTAIN THE KEY WORDS
+        \'filename\', \'name\', and \'type\'.  Most popular spreadsheet
+        programs can save files in CSV format, or files can be easily
+        constructed in your favorite text editor.
+
+        Example \'file_list.csv\':
+            filename, name, type
+            file1.tcx, "10K race", running
+            file2.fit, "Training Run", running
+            file3.fit, , swimming
+
+        Example \'file_list2.csv\' (note field order changed):
+            name, filename, type
+            "10K race", file1.tcx, running
+            "Training Run", file2.fit, running
+            , file3.fit, swimming
+
+    Activity Types:
+        The following list of activity types should be valid for setting
+        your activity type on Garmin Connect...
+
+        running, street_running, track_running, trail_running,
+        treadmill_running, cycling, cyclocross, downhill_biking, indoor_cycling,
+        mountain_biking, recumbent_cycling, road_biking, track_cycling,
+        fitness_equipment, elliptical, , indoor_cardio, indoor_rowing,
+        stair_climbing, strength_training, hiking, swimming, lap_swimming,
+        open_water_swimming, walking, casual_walking, speed_walking, transition,
+        swimToBikeTransition, bikeToRunTransition, runToBikeTransition,
+        motorcycling, other, backcountry_skiing_snowboarding, boating,
+        cross_country_skiing, driving_general, flying, golf, horseback_riding,
+        inline_skating, mountaineering, paddling, resort_skiing_snowboarding,
+        rowing, sailing, skate_skiing, skating, snowmobiling, snow_shoe,
+        stand_up_paddleboarding, whitewater_rafting_kayaking, wind_kite_surfing.
+
+
+    Examples:
+        Upload file and set activty name:
+            gupload -u myusername -p mypassword -a 'Run at park - 12/23' myfile.tcx
+
+        Upload multiple files:
+            gupload -u myusername -p mypassword myfile1.tcx myfile2.tcx myfile3.fit
+
+        Upload multiple files and set activity type for all to running:
+            gupload -u myusername -p mypassword -t "running" myfile1.tcx myfile2.tcx
+
+        Upload files using config file for credentials and csv list file:
+            gupload file_list.csv
+
+        Upload file using config file for credentials, name file, verbose
+        output:
+            gupload -v 1 -a 'Run at park - 12/23' myfile.tcx

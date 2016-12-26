@@ -1,6 +1,23 @@
+Garmin Uploader Release Notes
+==============================
 
-RELEASE:
-Garmin Connect Python Uploader Release Notes:
+Maintained by [Bastien Abadie](https://github.com/La0)
+
+Version 1.0.0
+-------------
+
+Major refactoring from [GCPUploader](https://github.com/dlotton/GcpUploader) source code:
+
+ * Supports new Garmin authentication (SSO)
+ * Split code in small classes
+ * Support Python 2.7 & Python 3.5
+ * Add unit tests, run by Travis CI
+
+
+Garmin Connect Python Uploader Release Notes
+============================================
+
+Maintained by [Dave Lotton](https://github.com/dlotton)
 
 Release 2015.02.28:
   Comments:
