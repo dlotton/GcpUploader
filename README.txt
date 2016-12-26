@@ -1,3 +1,8 @@
+This project is no longer maintained, you can use this upto date fork instead https://github.com/La0/garmin-uploader
+
+
+---------------------------------------------
+
 LICENSE:
 
 File: gupload.py 
